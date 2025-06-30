@@ -24,6 +24,8 @@ object AppDependencies {
   val mongoVersion        = "2.6.0"
   val playFrontendVersion = "12.6.0"
 
+  val mockitoVersion      = "5.18.0"
+
   val compile: Seq[ModuleID] = Seq(
     ws,
     "uk.gov.hmrc"       %% "bootstrap-frontend-play-30" % bootstrapVersion,
@@ -35,9 +37,10 @@ object AppDependencies {
     "uk.gov.hmrc"       %% "bootstrap-test-play-30"  % bootstrapVersion % Test,
     "uk.gov.hmrc.mongo" %% "hmrc-mongo-test-play-30" % mongoVersion     % Test,
     "org.jsoup"          % "jsoup"                   % "1.16.1"         % Test,
-    "org.mockito"        % "mockito-core"            % "5.5.0"          % Test
+    "org.mockito"        % "mockito-core"            % mockitoVersion   % Test
   )
 
   def all: Seq[ModuleID] = compile ++ test
 
 }
+

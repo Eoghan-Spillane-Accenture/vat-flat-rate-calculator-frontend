@@ -72,6 +72,11 @@ lazy val microservice: Project = Project(appName, file("."))
       "uk.gov.hmrc.hmrcfrontend.views.html.helpers._",
       "uk.gov.hmrc.govukfrontend.views.html.components.implicits._"
     )
+  ).settings(
+    Test / fork := true,
+    Test / javaOptions := Seq(
+      s"-javaagent:${csrCacheDirectory.value.getAbsolutePath()}/https/repo1.maven.org/maven2/org/mockito/mockito-core/${AppDependencies.mockitoVersion}/mockito-core-${AppDependencies.mockitoVersion}.jar",
+    )
   )
   .settings(
     scalacOptions ++= Seq(
